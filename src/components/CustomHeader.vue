@@ -26,7 +26,7 @@
 
 <script>
 export default {
-	name: 'HelloWorld',
+	name: 'CustomHeader',
 	data() {
 		return {
 			accessories : [
@@ -74,7 +74,7 @@ export default {
 	}
 	&__name {
 		margin: 0;
-		color: #888
+		color: #888;
 	}
 }
 
@@ -83,8 +83,8 @@ export default {
 		display: grid;
 		grid-template-columns: repeat(4,1fr);
 		margin: 0 5%;
-		text-align: center;border-bottom: 1px solid #ddd;
-		
+		text-align: center;
+		border-bottom: 1px solid #ddd;
 	}
 
 	&__top {
