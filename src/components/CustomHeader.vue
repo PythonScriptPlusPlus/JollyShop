@@ -1,15 +1,19 @@
 <template>
 	<div class="header">
-		<div class="header__top">
+		<router-link
+			to="/"
+			class="header__top"
+		>
 			<div class="header__icon" />
 			<p class="header__title">
 				Jolly Shop
 			</p>
-		</div>
+		</router-link>
 		<div class="header__bottom">
-			<div
+			<router-link
 				v-for="accessory in accessories"
 				:key="accessory.name"
+				:to="{ name: 'Category', params: {id: accessory.url}}"
 				class="accessories"
 			>
 				<div
@@ -19,7 +23,7 @@
 				<p class="accessories__name">
 					{{ accessory.name }}
 				</p>
-			</div>
+			</router-link>
 		</div>
 	</div>
 </template>
@@ -32,18 +36,22 @@ export default {
 			accessories : [
 				{
 					name : 'браслеты',
+					url : 'braclets',
 					icon : 'background-image: url(/img/icons/accessories/bracelet.png)'
 				},
 				{
 					name : 'подвески',
+					url : 'necklaces',
 					icon : 'background-image: url(/img/icons/accessories/necklace.png)'
 				},
 				{
 					name : 'серьги',
+					url : 'earings',
 					icon : 'background-image: url(/img/icons/accessories/earings.png)'
 				},
 				{
 					name : 'кольца',
+					url : 'rings',
 					icon : 'background-image: url(/img/icons/accessories/ring.png)'
 				}
 			]
@@ -55,6 +63,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .accessories {
+	&:link {text-decoration: none;}
+	&:visited {text-decoration: none;}
+	&:active {text-decoration: none;}
+
 	border-right: 1px solid #ddd;
 	margin: 5% 0;
 	display: flex;
@@ -79,6 +91,7 @@ export default {
 }
 
 .header {
+	//height: 19.5vh;
 	&__bottom {
 		display: grid;
 		grid-template-columns: repeat(4,1fr);
@@ -95,6 +108,10 @@ export default {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		
+		&:link {text-decoration: none;}
+		&:visited {text-decoration: none;}
+		&:active {text-decoration: none;}
 	}
 
 	&__icon {
@@ -107,6 +124,7 @@ export default {
 	&__title {
 		font-size: 2em;
 		margin: calc(5vh * 0.60) 0;
+		color: #000;
 	}
 }
 </style>

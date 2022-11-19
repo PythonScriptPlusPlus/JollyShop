@@ -20,8 +20,10 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
+    position: relative;
     background-color: #ebcf5d;
     height: 5em;
+    width: calc(100vw - 1em);
     padding: .5em;
     display: flex;
     justify-content: space-between;
@@ -38,8 +40,10 @@ export default {
     }
 
     &__social {
+        position: absolute;
+        right: .5em;
         border-left: 3px solid #fff;
-        height: calc(100% - .5em);
+        height: calc(100% - 1.5em);
     }
 
     &__icon {

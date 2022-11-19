@@ -1,8 +1,10 @@
 <template>
-	<div>
-		<CustomHeader />
-		<router-view />
-		<CustomFooter />
+	<div class="body">
+		<div>
+			<CustomHeader />
+			<router-view />
+		</div>
+		<CustomFooter class="footer" />
 	</div>
 </template>
 
@@ -24,8 +26,21 @@ export default {
 @import url(//fonts.googleapis.com/css?family=Inter);
 
 body{
-		
 	font-family: 'Inter';
 	font-style: normal;
+}
+.body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.view {
+	flex: 1 0 auto;
+}
+
+.footer {
+	flex-shrink: 0;
+	width: calc(100% - 1em);
 }
 </style>
