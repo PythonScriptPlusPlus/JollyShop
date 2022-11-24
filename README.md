@@ -5,6 +5,11 @@
 npm install
 ```
 
+## db starter
+```
+json-server --watch src/db/accessory.json
+```
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
