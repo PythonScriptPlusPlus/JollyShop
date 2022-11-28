@@ -46,7 +46,7 @@ export default {
 				},
 				{
 					name : 'серьги',
-					url : 'earings',
+					url : 'earrings',
 					icon : 'background-image: url(/img/icons/accessories/earings.png)'
 				},
 				{

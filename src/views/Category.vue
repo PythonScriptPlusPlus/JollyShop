@@ -1,7 +1,7 @@
 <template>
 	<div class="category alignment">
 		<p class="category__title">
-			{{ id }}
+			{{ categoriesRu[categories.indexOf(id)] }}
 		</p>
 		<div
 			v-for="item in items"
@@ -12,14 +12,11 @@
 			>
 				<div
 					class="items__img"
-					:style="{ 'background-image': 'url(' + item.urls[0] + ')' }"
+					:style="{ 'background-image': 'url(' + item.pics[0] + ')' }"
 				/>
-				<p class="items__name">
-					{{ item.name }}
-				</p>
-				<div class="wrapper">
-					<p class="items__price">
-						300<span>&#8381;</span>
+				<div class="alignment">
+					<p class="items__name">
+						{{ item.name }}
 					</p>
 					<button
 						class="items__btn"
@@ -27,6 +24,9 @@
 					>
 						заказать
 					</button>
+					<p class="items__price">
+						{{ item.price }}<span>&#8381;</span>
+					</p>
 				</div>
 			</div>
 		</div>
@@ -40,6 +40,8 @@ export default {
 		return {
 			id : this.$route.params.id,
 			items : [],
+			categories : ['braclets','necklaces','earrings','rings'],
+			categoriesRu : ['браслеты','подвески','серьги','кольца']
 		};
 	},
 	mounted() {
@@ -65,33 +67,25 @@ export default {
 	align-items: center;
 }
 .items{
-	margin-bottom: 5%;
+	margin: 0 5% 10% 5%;
 
 	&__price {
 		margin: 0;
+		width: fit-content;
 		font-style: italic;
 		font-size: 1.2em;
 		font-weight: 100;
-		color: #888;
+		color: #666;
 		position: relative;
 
-		&::after {
-			position: absolute;
-			bottom: 0px;
-			left: 0;
-			height: .4em;
-			width: 80%;
-			content: "";
-			background-color: #ebcf5d;
-			display: block;
-			opacity: 0.5;
-		}
 	}
 
 	&__btn {
+		grid-row: span 2;
+		margin-top: 12.5%;
 		height: 2em;
 		border-radius: 1em;
-		width: 55%;
+		width: 100%;
 		border: 2px solid #9D39DA;
 		background-color: #9D39DA;
 		color: #fff;
@@ -101,10 +95,9 @@ export default {
 		background-size: cover;
 		background-position-x: center;
 		background-position-y: center;
-		background-color: #9D39DA;
+		background-color: #ddd;
 		aspect-ratio: 3/4;
-		width: 90%;
-		margin: 0 5%;
+		width: 100%;
     
     &:hover {
         transition: background-color .2s;
@@ -120,7 +113,7 @@ export default {
 	}
 
 	&__name {
-		margin:0px 5%;
+		margin: 0px;
 		font-size: 1.5em;
 		width: fit-content;
 		text-transform: capitalize;
@@ -128,9 +121,9 @@ export default {
 
 		&::after {
 			position: absolute;
-			bottom: 0px;
-			right: 0;
-			height: .45em;
+			bottom: 3px;
+			right: 0px;
+			height: calc(.45em + 0px);
 			width: 60%;
 			content: "";
 			background-color: #9D39DA;
