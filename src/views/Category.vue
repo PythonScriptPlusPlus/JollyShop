@@ -30,6 +30,12 @@
 				</div>
 			</div>
 		</div>
+		<div
+			v-if="!items.length"
+			class="categoryless"
+		>
+			Упс... такой категории нет, но существующие вы можете найти сверху
+		</div>
 	</div>
 </template>
 
@@ -59,6 +65,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.categoryless {
+	grid-column: 1/3;
+	text-align: center;
+	font-size: 2em;
+	font-weight: 900;
+	margin: 10% 4%;
+}
+
 .wrapper {
 	display: flex;
 	margin: 0 5%;
@@ -81,8 +95,8 @@ export default {
 	}
 
 	&__btn {
-		grid-row: span 2;
-		margin-top: 12.5%;
+		grid-column: 2/3;
+		grid-row: 2/3;
 		height: 2em;
 		border-radius: 1em;
 		width: 100%;
@@ -118,6 +132,7 @@ export default {
 		width: fit-content;
 		text-transform: capitalize;
 		position: relative;
+		grid-column: 1/3;
 
 		&::after {
 			position: absolute;
@@ -128,7 +143,7 @@ export default {
 			content: "";
 			background-color: #9D39DA;
 			display: block;
-			opacity: 0.5;
+			opacity: 0.4;
 		}
 	}
 }
