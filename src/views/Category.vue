@@ -20,7 +20,7 @@
 					</p>
 					<button
 						class="items__btn"
-						@click="changeRoute('/')"
+						@click="changeRoute('/category/'+id+'/'+item.id)"
 					>
 						заказать
 					</button>
